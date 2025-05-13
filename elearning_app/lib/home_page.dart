@@ -47,6 +47,36 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<void> _confirmLogout() async {
+  final shouldLogout = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Konfirmasi Log Out'),
+        content: Text('Apakah Anda yakin ingin keluar?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
+            child: Text('Batal'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+            child: Text('Log Out'),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (shouldLogout == true) {
+    _logout(); 
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Welcome Back',
+                                  'Selamat Datang Kembali',
                                   style: TextStyle(color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
@@ -245,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                       ListTile(
                         leading: Icon(Icons.logout),
                         title: Text('Log Out'),
-                        onTap: _logout,
+                        onTap: _confirmLogout, // Panggil fungsi konfirmasi logout
                       ),
                     ],
                   ),

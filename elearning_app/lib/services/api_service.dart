@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   // Ganti dengan URL Laravel API Anda
-  static const String baseUrl = 'http://192.168.0.103:8000/api';
+  static const String baseUrl = 'http://10.0.172.157:8000/api';
 
   // Fungsi untuk mendapatkan token dari SharedPreferences
   static Future<String?> getToken() async {

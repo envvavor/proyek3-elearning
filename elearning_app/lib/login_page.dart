@@ -140,12 +140,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Lupa Password?'),
                 ),
                 // Tambahkan tombol daftar
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  child: Text('Belum punya akun? Daftar'),
-                ),
               ],
             ),
           ),

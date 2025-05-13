@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         // Mengembalikan respons dengan status code 401
         return response()->json([
-            'message' => 'The provided credentials are incorrect.',
+            'message' => 'Email atau password salah',
         ], 401);
     }
 
